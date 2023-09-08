@@ -1,0 +1,6 @@
+[submodule "gtkwave"]
+	path = gtkwave
+	url = https://github.com/gtkwave/gtkwave.git
+[submodule "verilator"]
+	path = verilator
+	url = https://github.com/verilator/verilator.git

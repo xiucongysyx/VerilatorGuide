@@ -3,9 +3,9 @@
     Verilator是一款开源的支持Verilog和System Verilog仿真工具，它支持代码质量检查等功能，能够将给定的电路设计（由Verilog或System Verilog编写）编译成C++或者System C的库等中间文件。使用者可以通过C++编写testbench程序，来调用这些库，以完成Verilog的仿真。
 
 # 安装
-	编者提供了多种安装方式，感兴趣的同学可以尝试不同的方法进行安装。
+    编者提供了多种安装方式，感兴趣的同学可以尝试不同的方法进行安装。
 ## 1、通过文件中安装包进行安装
-	编者已经将Verilator的仓库放在了文件夹下，可以通过下面的命令进行安装。值得注意的是，如果不能通过编译，可能是因为缺少一些库文件，请自行根据错误信息进行debug。
+    编者已经将Verilator的仓库放在了文件夹下，可以通过下面的命令进行安装。值得注意的是，如果不能通过编译，可能是因为缺少一些库文件，请自行根据错误信息进行debug。
 ```bash
 #通过下面的命令进行安装，首先确保你当前的位置在解压后的文件夹中
 unsetenv VERILATOR_ROOT     # 如果这条命令出现了错误，那么请忽视这条命令
@@ -23,7 +23,7 @@ Verilator 5.012 2023-06-13 rev v5.012-34-g4f13c4d1b (mod)
 ```
 
 ### 2、通过官网的指南安装
-	Verilator的官网地址是https://verilator.org/guide/latest/。在第一章节的Installation小节可以找到安装指南，具体内容如下：
+    Verilator的官网地址是https://verilator.org/guide/latest/。在第一章节的Installation小节可以找到安装指南，具体内容如下：
 ```bash
 #Git Quick Install
 #安装依赖
@@ -52,9 +52,9 @@ Verilator 5.012 2023-06-13 rev v5.012-34-g4f13c4d1b (mod)
 
 
 # 使用
-	你可以在Verilator的官网找到详细的使用指南和例程，这里编者也提供一个例程供大家学习。这个例程就在count文件夹中。
-文件结构
-	首先介绍这个例程的结构。其中count.v是verilog文件，count.cpp是使用C编写的testbench文件。至于Makefile文件，它是一种用来进行快速编译的文件，感兴趣的同学可以了解一下。
+    你可以在Verilator的官网找到详细的使用指南和例程，这里编者也提供一个例程供大家学习。这个例程就在count文件夹中。
+## 文件结构
+    首先介绍这个例程的结构。其中count.v是verilog文件，count.cpp是使用C编写的testbench文件。至于Makefile文件，它是一种用来进行快速编译的文件，感兴趣的同学可以了解一下。
 ```bash
 count
 |--Makefile
@@ -66,9 +66,9 @@ count
 
 
 ## 编译方法
-	这里提供两种编译方法。
+    这里提供两种编译方法。
 ### 1、通过在终端中输入命令进行编译
-	首先确保你在count目录下，接着执行下面的命令进行编译。这种编译方法的好处是简单直观，缺点是每次编译都要输入大量的参数。
+    首先确保你在count目录下，接着执行下面的命令进行编译。这种编译方法的好处是简单直观，缺点是每次编译都要输入大量的参数。
 ```bash
 verilator --top-module count --cc --build --Wall --exe --trace vsrc/*.v csrc/*.cpp
 
@@ -79,7 +79,7 @@ verilator --top-module count --cc --build --Wall --exe --trace vsrc/*.v csrc/*.c
 ```
 
 ### 2、通过Makefile进行编译
-	编者在文件夹中提供了一个Makefile文件供大家学习和使用。如果你想要学习Makefile工具，请在网上搜索相关的资料进行学习；如果你只是想要使用该工具，你可能需要注意Makefile中第一行的变量。
+    编者在文件夹中提供了一个Makefile文件供大家学习和使用。如果你想要学习Makefile工具，请在网上搜索相关的资料进行学习；如果你只是想要使用该工具，你可能需要注意Makefile中第一行的变量。
 ```makefile
 # 第一行的变量确定了顶层模块
 # 你可以通过将等号后面的字符修改成你自己的顶层模块名称来进行快速编译
@@ -88,7 +88,7 @@ TOPNAME = count
 ```
 
 ### 3、CPP文件讲解
-	为了大家能够更好的理解和使用C语言编写Testbench文件，我将CPP文件添加了注释供大家参考。
+    为了大家能够更好的理解和使用C语言编写Testbench文件，我将CPP文件添加了注释供大家参考。
 ```cpp
 #include <verilated.h>        // verilated.h库文件
 #include "verilated_vcd_c.h"  // 波形追踪的库文件
@@ -141,9 +141,9 @@ int main() {
 ```
 
 ## 观察波形
-	我们可以使用GTKWave工具来观察生成的波形进行调试。这是它的[官网](https://gtkwave.sourceforge.net/)
+    我们可以使用GTKWave工具来观察生成的波形进行调试。这是它的[官网](https://gtkwave.sourceforge.net/)
 ### 1、安装GTKWave
-	我已经将GTKWave的仓库放在了文件夹中，像安装Verilator一样，我们也需要通过一些命令来进行安装。
+    我已经将GTKWave的仓库放在了文件夹中，像安装Verilator一样，我们也需要通过一些命令来进行安装。
 ```bash
 # 首先确保你的位置在gtkwave文件夹下
 ./configure
@@ -152,7 +152,7 @@ sudo make install
 ```
 
 ### 2、通过GTKWave观察波形
-	进行编译之后，在count文件夹下会生成count.vcd文件，这个文件就是生成的波形文件。你可以通过输入以下命令使用GTKWave进行观察。
+    进行编译之后，在count文件夹下会生成count.vcd文件，这个文件就是生成的波形文件。你可以通过输入以下命令使用GTKWave进行观察。
 ```bash
 # 通过命令行命令进行观察
 gtkwave count.vcd
